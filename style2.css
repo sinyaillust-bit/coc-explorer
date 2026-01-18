@@ -1,0 +1,359 @@
+/* ===============================
+   基本設定
+================================ */
+:root {
+  --bg-main: #0b0b0b;
+  --bg-sub: #151515;
+  --text-main: #e6e6e6;
+  --text-sub: #aaaaaa;
+  --accent: #255cd1;
+  --lost: #8b2c2c;
+  --madness: #7b6cff;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Noto Serif JP", serif;
+  background: radial-gradient(circle at top, #1a1a1a, var(--bg-main));
+  color: var(--text-main);
+  line-height: 1.7;
+}
+
+/* ===============================
+   ヘッダー・フッター
+================================ */
+header,
+footer {
+  text-align: center;
+  padding: 1.5rem 1rem;
+  background: #111;
+}
+
+header h1 {
+  margin: 0;
+  letter-spacing: 0.2em;
+}
+
+footer {
+  font-size: 0.8rem;
+  color: var(--text-sub);
+}
+
+/* ===============================
+   探索者一覧ページ
+================================ */
+.container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.8rem;
+  padding: 2rem;
+}
+
+/* ===============================
+   カード本体
+================================ */
+.card {
+  position: relative;
+  background: linear-gradient(180deg, #1e1e1e, var(--bg-sub));
+  border-radius: 14px;
+  padding: 1.2rem;
+  padding-top: 3.5rem;        /* ← 飛び出し分の余白 */
+  box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+  overflow: visible;          /* ← はみ出し許可 */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 40px rgba(0,0,0,0.8);
+}
+
+.card-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+/* ===============================
+   画像（枠から飛び出す）
+================================ */
+.card img {
+  position: absolute;
+  top: -40px;                 /* ← 上に飛び出す量 */
+  left: 70%;
+  transform: translateX(-50%) scale(1.2);
+
+  width: 85%;
+  height: 260px;
+
+  object-fit: cover;
+  object-position: center top;
+
+  border-radius: 14px;
+
+  display: block;
+}
+
+/* ===============================
+   テキスト
+================================ */
+.card h2 {
+  margin: 0.5rem 0 0.2rem;
+  font-size: 1.2rem;
+}
+
+.job {
+  color: var(--accent);
+  font-size: 0.9rem;
+}
+
+.tag {
+  font-size: 0.8rem;
+  color: var(--accent);
+}
+
+.tag.lost {
+  color: var(--lost);
+}
+
+/* ===============================
+   探索者 個別ページ
+================================ */
+/* ===============================
+   個別ページ レイアウト
+================================ */
+html {
+  background: #111; /* 好きな色に */
+}
+
+body {
+  min-height: 100vh;
+  background: transparent;
+}
+
+.solo-layout {
+  position: relative;
+  min-height: 520px;
+  overflow: hidden;
+  background: #111;
+  padding: 2rem;
+  display: flex;
+  align-items: center;
+}
+
+/* 背景 */
+.solo-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+.solo-bg img {
+  width: 120%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+ /* ← 20%透過 */
+  opacity: 0.6;
+   transform: translateX(0%);
+
+}
+
+/* ===============================
+   左側テキスト
+================================ */
+.solo-left {
+  position: relative;
+  z-index: 2;
+  max-width: 55%;
+  color: #111;
+}
+
+/* 名前 */
+.solo-name {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #255cd1;
+}
+
+/* 能力値 */
+.params {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  gap: 0.4rem;
+  list-style: none;
+  padding: 0.6rem 0.8rem;
+  margin-bottom: 1rem;
+  font-size: 0.85rem;
+  background: rgba(224, 224, 224, 0.616);
+  border-radius: 10px;
+}
+
+.params li {
+  text-align: center;
+  white-space: nowrap;
+}
+
+/* ===============================
+   説明ボックス（白）
+================================ */
+.desc {
+  background: #90b3db;
+  border-radius: 20px;
+  padding: 1.2rem 1.5rem;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+}
+
+.desc h2 {
+  margin-top: 0;
+}
+.desc p {
+  line-height: 1.0;
+}
+
+
+/* ================================ 
+     右側キャラ（立ち絵） 
+================================ */
+.solo-chara {
+  position: absolute;
+  right: 3%;
+  bottom: -20px;
+  z-index: 3;
+  pointer-events: none;
+}
+
+.solo-chara img {
+  height: 520px;          /* ← 立ち絵の大きさ */
+  width: auto;
+  object-fit: contain;
+  display: block;
+  background: none;
+  transform: translateX(10%);
+}
+
+/* ===============================
+   斜め帯
+================================ */
+.diagonal {
+  position: absolute;
+  bottom: 45px;
+  left: -10%;
+  width: 120%;
+  padding: 0.6rem;
+  text-align: right;
+  background: rgba(0,0,0,0.6);
+  color: #fff;
+  transform: rotate(-8deg);
+  z-index: 4;
+  font-size: 0.9rem;
+  padding-right: 9rem;
+
+
+}
+
+
+/* ===============================
+   年表（引き出し式）
+================================ */
+
+.timeline-wrap {
+  max-width: 900px;
+  margin: 3rem auto;
+  padding: 0 1rem;
+}
+
+/* トグルボタン */
+.timeline-toggle {
+  width: 100%;
+  background: #111;
+  color: #255cd1;
+  border: 1px solid #333;
+  padding: 1rem;
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 12px;
+  text-align: center;
+}
+
+/* 中身 */
+.timeline-body {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.6s ease;
+}
+
+/* 開いた状態 */
+.timeline-wrap.open .timeline-body {
+  max-height: 1000px; /* 十分大きく */
+}
+
+/* 年表本体 */
+.timeline {
+  list-style: none;
+  padding: 2rem 1.5rem;
+  margin: 0;
+  border-left: 2px solid #333;
+  background: rgba(0,0,0,0.6);
+  border-radius: 0 0 12px 12px;
+}
+
+.event {
+  position: relative;
+  padding-left: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.event::before {
+  content: "";
+  position: absolute;
+  left: -0.55rem;
+  top: 0.4rem;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #c9a86a;
+}
+
+.event.madness::before {
+  background: #7b6cff;
+}
+
+.event.lost::before {
+  background: #8b2c2c;
+}
+
+.event .date {
+  font-size: 0.8rem;
+  color: #aaa;
+}
+/* ===============================
+   探索者一覧に戻るボタン
+================================ */
+.back-to-list {
+  position: fixed;
+  top: 16px;
+  right: 20px;
+  z-index: 9999;
+
+  padding: 0.5rem 1rem;
+  font-size: 0.85rem;
+  text-decoration: none;
+
+  color: #ffffff;
+  background: rgba(0,0,0,0.6);
+  border: 1px solid rgba(255,255,255,0.3);
+  border-radius: 20px;
+
+  backdrop-filter: blur(6px);
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.back-to-list:hover {
+  background: rgba(0,0,0,0.85);
+  transform: translateY(-2px);
+}

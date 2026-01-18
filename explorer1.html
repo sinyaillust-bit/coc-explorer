@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>探索者紹介｜愛染 尊</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+<a href="index.html" class="back-to-list">
+  ←
+</a>
+
+<section class="solo-layout">
+  <div class="solo-bg">
+    <img src="img/explorer1.png" alt="">
+  </div>
+
+  <div class="solo-left">
+    <h1 class="solo-name">愛染 尊</h1>
+
+    <ul class="params">
+      <li>STR 10</li><li>CON 13</li><li>POW 13</li>
+      <li>DEX 14</li><li>APP 18</li><li>SIZ 10</li>
+      <li>INT 18</li><li>EDU 15</li>
+    </ul>
+
+    <div class="desc">
+      <h2>PROFILE</h2>
+        <p>陰か陽で言えば限りなく陰キャ。</p>
+        <p>見るからに幸が薄そうなイケメン。</p>
+    </div>
+  </div>
+
+  <div class="solo-chara">
+    <img src="img/explorer1.png" alt="">
+  </div>
+
+  <div class="diagonal">
+    「────・・・・・・。」
+  </div>
+</section>
+
+<section class="reveal">
+  <div class="timeline-wrap">
+    <button class="timeline-toggle">
+      ▼ セッション年表を見る
+    </button>
+
+    <div class="timeline-body">
+      <ul class="timeline">
+        <li class="event">
+          <span class="date">2025/11</span>
+          <p>『吠日怪界』生還</p>
+        </li>
+        <li class="event">
+          <span class="date">2026/01</span>
+          <p>『夢の淵をなぞって』</p>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ★ ここに script -->
+<script>
+  const toggle = document.querySelector('.timeline-toggle');
+  const wrap = document.querySelector('.timeline-wrap');
+
+  toggle.addEventListener('click', () => {
+    wrap.classList.toggle('open');
+
+    toggle.textContent = wrap.classList.contains('open')
+      ? '▲ セッション年表を閉じる'
+      : '▼ セッション年表を見る';
+  });
+</script>
+
+</body>
+</html>

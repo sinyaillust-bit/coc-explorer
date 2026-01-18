@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>探索者紹介｜鴉間 了</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style2.css">
+</head>
+
+<body>
+<a href="index.html" class="back-to-list">
+  ←
+</a>
+
+<section class="solo-layout">
+  <div class="solo-bg">
+    <img src="img/explorer2.png" alt="">
+  </div>
+
+  <div class="solo-left">
+    <h1 class="solo-name">鴉間 了</h1>
+
+    <ul class="params">
+      <li>STR 10</li><li>CON 13</li><li>POW 13</li>
+      <li>DEX 14</li><li>APP 18</li><li>SIZ 10</li>
+      <li>INT 18</li><li>EDU 15</li>
+    </ul>
+
+    <div class="desc">
+      <h2>PROFILE</h2>
+        <p>情緒不安定サイコパス看守</p>
+        <p>野心が強く、自分以外の全てを見下している。</p>
+    </div>
+  </div>
+
+  <div class="solo-chara">
+    <img src="img/explorer2.png" alt="">
+  </div>
+
+  <div class="diagonal">
+    『手間をかけさせるな、命令にだけ従え。』
+  </div>
+</section>
+
+<section class="reveal">
+  <div class="timeline-wrap">
+    <button class="timeline-toggle">
+      ▼ セッション年表を見る
+    </button>
+
+    <div class="timeline-body">
+      <ul class="timeline">
+        <li class="event">
+          <span class="date">2025/05</span>
+          <p>『腕すらなくとも』生還</p>
+        </li>
+        <li class="event">
+          <span class="date">2026/05</span>
+          <p>『いい子にしてるか黙ってろ』生還</p>
+        </li>
+        <li class="event">
+          <span class="date">2026/05</span>
+          <p>『デュエットレイス』生還</p>
+        </li>
+        <li class="event">
+          <span class="date">2026/05</span>
+          <p>『伽圉』生還</p>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ★ ここに script -->
+<script>
+  const toggle = document.querySelector('.timeline-toggle');
+  const wrap = document.querySelector('.timeline-wrap');
+
+  toggle.addEventListener('click', () => {
+    wrap.classList.toggle('open');
+
+    toggle.textContent = wrap.classList.contains('open')
+      ? '▲ セッション年表を閉じる'
+      : '▼ セッション年表を見る';
+  });
+</script>
+
+</body>
+</html>
