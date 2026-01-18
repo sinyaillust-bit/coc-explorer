@@ -21,6 +21,7 @@ body {
   background: radial-gradient(circle at top, #1a1a1a, var(--bg-main));
   color: var(--text-main);
   line-height: 1.7;
+   min-width: 1200px;
 }
 
 /* ===============================
@@ -357,3 +358,4 @@ body {
   background: rgba(0,0,0,0.85);
   transform: translateY(-2px);
 }
+
